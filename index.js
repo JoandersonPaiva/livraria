@@ -24,7 +24,7 @@ app.use(express.json())
 // Rotas
 
 app.get('/', (req, res) => {
-    res.send('Foi')
+    res.render('index')
 })
 
 app.listen(8080, () => {
