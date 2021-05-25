@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<div class="container login-page" style="width: 20rem;">
+    <form action="/create/verify" method="POST">
+        <div class="card mt-5">
+            <img src="/images/logo/logo.png" alt="" width="280px" height="60px">
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control"name="name" id="floatingInput" placeholder=" " required>
+                <label for="floatingInput">First name</label>
+            </div>
+            <div class="form-floating mt-1">
+                <input type="email" class="form-control"name="email" id="floatingInput" placeholder=" " required>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mt-1">
+                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="d-grid gap-2 mt-3 mb-1 space">
+                <button  class="btn btn-primary" type="submit">Create</button>
+              </div>
+        </div>
+    </form>
+
+</div>
