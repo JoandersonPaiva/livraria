@@ -7,10 +7,14 @@ const session = require('express-session')
 
 //Importar rotas
 const usersController =  require('./user/UsersController')
+const BooksController = require('./books/BooksControler')
+const CategoriesController = require('./categories/CategoriesController')
 
 
 // Models
 const Users =  require('./user/Users')
+const Books = require('./books/Books')
+const Categories =  require('./categories/Categories')
 
 //Session
 app.use(session({
@@ -44,6 +48,8 @@ connection
 })
 
 app.use('/', usersController)
+app.use('/', BooksController)
+app.use('/', CategoriesController)
 
 
 app.listen(8080, () => {

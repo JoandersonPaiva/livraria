@@ -20,4 +20,20 @@ const admin = (req , res, next) => {
     }
 }
 
-module.exports = {users, admin}
+const login = (req, res) => {
+    const user =  req.session.user
+    if(user != undefined){
+        if(user.level === 1){
+            res.render('user/index', {user:user})
+        }else if(user.level === 2){
+            res.render('admin/index', {user:user})
+        }else{
+            res.redirect('/login')
+        }
+    }else{
+        res.redirect('/login')
+    }
+}
+
+
+module.exports = {users, admin, login}

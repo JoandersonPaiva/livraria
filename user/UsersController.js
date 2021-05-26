@@ -77,8 +77,12 @@ router.post('/create/verify', (req, res) => {
     })
 })
 
-router.get('/home', auth.users ,(req, res) => {
+router.get('/home', auth.login ,(req, res) => {
     res.render('user/index', {user: req.session.user})
+})
+
+router.get('/admin', auth.login, (req, res) => {
+    res.render('admin/index',{user: req.session.user})
 })
 
 router.post('/logout', (req, res) => {
