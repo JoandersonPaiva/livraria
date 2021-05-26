@@ -5,6 +5,9 @@ const Users = connection.define('users', {
     name:{
         type: Sequelize.STRING,
         allowNull:false
+    },gen:{
+        type:Sequelize.STRING,
+        allowNull: false
     },email: {
         type: Sequelize.STRING,
         allowNull:false

@@ -25,6 +25,7 @@ router.post('/login/verify', (req, res) => {
             if(compare){
                 req.session.user = {
                     name: user.name,
+                    gen:user.gen,
                     email: user.email,
                     level: user.level
                 }
@@ -47,6 +48,7 @@ router.get('/create', (req, res) => {
 
 router.post('/create/verify', (req, res) => {
     let name = req.body.name
+    let gen = req.body.gen
     let email =  req.body.email
     let password =  req.body.password
     let salt =  bcrypt.genSaltSync(10)
@@ -62,6 +64,7 @@ router.post('/create/verify', (req, res) => {
         }else{
             Users.create({
                 name: name,
+                gen: gen,
                 email:email,
                 password: hash,
                 level: 1
@@ -75,7 +78,7 @@ router.post('/create/verify', (req, res) => {
 })
 
 router.get('/home', auth.users ,(req, res) => {
-    res.render('user/index')
+    res.render('user/index', {user: req.session.user})
 })
 
 router.post('/logout', (req, res) => {
