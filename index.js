@@ -18,8 +18,7 @@ const Categories =  require('./categories/Categories')
 
 //Session
 app.use(session({
-    secret: 'bookszondutable',
-    cookie: {maxAge: 300000}
+    secret: 'bookszondutable'
 }))
 
 //View engine

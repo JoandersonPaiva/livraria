@@ -1,0 +1,49 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+<body>
+    <div class="container">
+        <hr>
+        <h2>Books</h2>
+        <a class="btn btn-success" href="/admin/books/new"> New book</a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% books.forEach(book => { %>
+                <tr>
+                    <td><%=book.name %></td>
+                    <td><%=book.quant %></td>
+                    <td><%=book.price %></td>
+                    <td><%=book.category.name %></td>
+                    <td><%=book.description %></td>
+
+                    <td><a href="/admin/books/edit/<%=book.id%>" class="btn btn-warning">Editar</a>
+                    <a href="#" class="btn btn-danger">Deletar</a></td>    
+                    
+                </tr>
+                <% }) %> 
+    
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<%- include('../../partials/footer') %>
+<script> 
+    const confirmDelete= (event, form) => {
+        event.preventDefault()
+        if(window.confirm('Deletar artigo?')) {
+            form.submit()
+        }
+    }
+</script>
+<%- include('../../partials/footer') %>

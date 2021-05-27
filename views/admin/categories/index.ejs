@@ -1,0 +1,42 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+<body>
+    <div class="container">
+        <hr>
+        <h2>Category</h2>
+        <a class="btn btn-success" href="/admin/categories/new"> New Category</a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <% categories.forEach(category =>{ %>
+            <tr>
+                    <td><%=category.id %> </td>
+                    <td><%=category.name %> </td>
+                    <td><a href="/admin/categories/edit/<%=category.id%>" class="btn btn-warning">Editar</a>
+                    <a href="#" value="<%=category.id%>" class="btn btn-danger">Deletar</a></td>                
+                <% }) %>
+            </tr>
+            <tbody>
+
+    
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<%- include('../../partials/footer') %>
+<script> 
+    const confirmDelete= (event, form) => {
+        event.preventDefault()
+        if(window.confirm('Deletar artigo?')) {
+            form.submit()
+        }
+    }
+</script>
+<%- include('../../partials/footer') %>

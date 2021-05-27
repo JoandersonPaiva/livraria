@@ -9,6 +9,9 @@ const Books = connection.define('books',{
     },description:{
         type:Sequelize.TEXT,
         allowNull:false
+    },price:{
+        type:Sequelize.INTEGER,
+        allowNull:false
     },quant:{
         type:Sequelize.INTEGER,
         allowNull:false

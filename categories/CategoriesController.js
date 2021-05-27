@@ -4,8 +4,61 @@ const auth =  require('../middleware/auth')
 const Categories = require('./Categories')
 
 router.get('/admin/categories', auth.admin, (req, res) => {
-    res.send('admin categories')
+    Categories.findAll().then(categories => {
+        res.render('admin/categories/index', {categories:categories, user:req.session.user})
+    })
+
 })
 
+router.get('/categories', auth.users, (req, res) => {
+    res.render('user/categories/index', {user:req.session.user})
+})
+
+router.get('/admin/categories-user', auth.admin, (req, res) => {
+    res.render('admin/categories/categoriesUser', {user:req.session.user})
+})
+
+router.get('/admin/categories/new',(req, res) => {
+    res.render('admin/categories/new', {user:req.session.user})
+})
+
+router.get('/admin/categories/edit/:id',(req, res) => {
+    let id = req.params.id
+    if(isNaN(id)){
+        res.redirect('/admin/categories')
+    }
+    Categories.findByPk(id).then(category => {
+        if(category != undefined){
+            res.render('admin/categories/edit', {user:req.session.user, category:category})
+        }
+    })
+})
+
+router.post('/admin/categories/create', auth.admin , (req, res) => {
+    let name =  req.body.name
+    if(name !== undefined) {
+        Categories.findOne({
+            where:{
+                name:name
+            }
+        }).then(category => {
+            if(category == undefined){
+                Categories.create({
+                    name:name
+                }).then(() => {
+                    res.redirect('/admin/categories')
+                }).catch(() => {
+                    res.redirect('/admin/categories/new')
+
+                })
+            }else{
+                res.redirect('/admin/categories')
+            }
+        }).catch(() => res.redirect('/admin/categories/new'))
+    }else{
+        res.redirect('/admin/categories')
+    }
+    
+})
 
 module.exports = router

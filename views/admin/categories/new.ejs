@@ -1,0 +1,36 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+<body>
+    <div class="container">
+        <hr>
+        <h2>Category</h2>
+        <hr>
+        <form action="/admin/categories/create" method="POST">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Nome da categoria" name="name" class="form-control"></td>
+                        <td><button type="submit" class="btn btn-success">Criar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+<%- include('../../partials/footer') %>
+<script> 
+    const confirmDelete= (event, form) => {
+        event.preventDefault()
+        if(window.confirm('Deletar artigo?')) {
+            form.submit()
+        }
+    }
+</script>
+<%- include('../../partials/footer') %>

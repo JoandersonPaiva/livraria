@@ -1,0 +1,42 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+<body>
+    <form action="">
+        <div class="container">
+            <hr>
+            <h2>Books</h2>
+            <hr>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Cod</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><input type="text" name="name" value="<%= book.name %>" class="form-control"></th>
+                        <th><input type="number" name="quant" value="<%= book.quant %>" class="form-control"></th>
+                        <th><input type="number" name="price" value="<%= book.price %>" class="form-control"></th>
+                        <th><input type="number" name="cod" value="<%= book.cod %>" class="form-control"></th>
+                        <th><select name="category" class="form-select">
+                            <% categories.forEach(category => { %>
+                                
+                                <option value="<%=category.id%>"><%=category.name%> </option>
+                            <% }) %>
+                        </select></th>
+                    </tr>
+        
+                </tbody>
+            </table>
+            <label for="textarea"><h4>Descrição:</h4></label>
+            <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea><br>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </div>
+    </form>
+</body>
+
+<%- include('../../partials/footer') %>

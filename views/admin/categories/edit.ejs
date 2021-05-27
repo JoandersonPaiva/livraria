@@ -1,0 +1,38 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+<body>
+    <div class="container">
+        <hr>
+        <h2>Category</h2>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="form-control"><%=category.id%></p></td>
+                    <td><input type="text" value="<%=category.name%>" class="form-control"></td>
+                    <td><button type="submit" class="btn btn-success">Atualizar</button></td>
+                </tr>
+
+    
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<%- include('../../partials/footer') %>
+<script> 
+    const confirmDelete= (event, form) => {
+        event.preventDefault()
+        if(window.confirm('Deletar artigo?')) {
+            form.submit()
+        }
+    }
+</script>
+<%- include('../../partials/footer') %>
