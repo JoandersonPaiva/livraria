@@ -77,4 +77,14 @@ router.post('/admin/categories/save', auth.admin , (req, res) => {
     }
 })
 
+
+router.post('/admin/categories/delete', auth.admin, (req, res) => {
+    let id =  req.body.id
+    Categories.destroy({
+        where: {
+            id:id
+        }
+    }).then(() => res.redirect('/admin/categories'))
+        .catch(() => res.redirect('/admin/categories'))
+})
 module.exports = router

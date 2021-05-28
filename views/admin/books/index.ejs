@@ -27,7 +27,12 @@
                     <td><%=book.description %></td>
 
                     <td><a href="/admin/books/edit/<%=book.id%>" class="btn btn-warning">Editar</a>
-                    <a href="#" class="btn btn-danger">Deletar</a></td>    
+                    <form action="/admin/books/delete" method="POST" style="display: inline;" onsubmit="confirmDelete(event, this)">
+                        <input type="hidden" name="id" value="<%=book.id%>">
+                        <button class="btn btn-danger" type="submit" >
+                            Deletar
+                        </button></td>
+                    </form>    
                     
                 </tr>
                 <% }) %> 
@@ -41,7 +46,7 @@
 <script> 
     const confirmDelete= (event, form) => {
         event.preventDefault()
-        if(window.confirm('Deletar artigo?')) {
+        if(window.confirm('Deletar livro?')) {
             form.submit()
         }
     }

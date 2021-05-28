@@ -91,4 +91,14 @@ router.post('/admin/books/save', auth.admin, (req, res) => {
             .catch(() => res.redirect('/admin/books'))
 })
 
+router.post('/admin/books/delete', auth.admin, (req, res) => {
+    let id = req.body.id
+    Books.destroy({
+        where:{
+            id:id
+        }
+    }).then(() => res.redirect('/admin/books'))
+        .catch(() => res.redirect('/admin/books'))
+})
+
 module.exports = router
