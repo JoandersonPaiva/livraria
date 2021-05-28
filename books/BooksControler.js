@@ -69,4 +69,26 @@ router.post('/admin/books/create', auth.admin, (req, res) => {
     })
 })
 
+router.post('/admin/books/save', auth.admin, (req, res) => {
+    let id = req.body.id
+    let name = req.body.name
+    let description = req.body.description
+    let quant = req.body.quant
+    let cod= req.body.cod
+    let categoryId = req.body.category
+    let price = req.body.price
+    Books.update({
+        name:name, 
+        description:description,
+        price:price,
+        quant:quant,
+        cod:cod,
+        categoryId:categoryId},{
+            where: {
+                id:id
+            }
+        }).then(() => res.redirect('/admin/books'))
+            .catch(() => res.redirect('/admin/books'))
+})
+
 module.exports = router
