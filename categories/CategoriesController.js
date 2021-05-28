@@ -61,4 +61,20 @@ router.post('/admin/categories/create', auth.admin , (req, res) => {
     
 })
 
+router.post('/admin/categories/save', auth.admin , (req, res) => {
+    let id = req.body.id
+    let name =  req.body.name
+    if(name != undefined){
+        Categories.update({name:name}, {
+            where:{
+                id:id
+            }
+        }).then(() => {
+            res.redirect('/admin/categories')
+        }).catch(() => res.redirect('/admin/categories'))
+    }else{
+        res.redirect('/admin/categories/edit')
+    }
+})
+
 module.exports = router
