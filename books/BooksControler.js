@@ -15,7 +15,9 @@ router.get('/admin/books', auth.admin,(req, res) => {
 })
 
 router.get('/books', auth.users, (req, res) => {
-    res.render('user/books/index', {user: req.session.user})
+    Books.findAll().then(books => {
+        res.render('user/books/index', {user: req.session.user, books:books})
+    })
 })
 
 router.get('/admin/books/new',auth.admin,(req, res) => {
@@ -25,7 +27,9 @@ router.get('/admin/books/new',auth.admin,(req, res) => {
 })
 
 router.get('/admin/books-user',auth.admin,(req, res) => {
-    res.render('admin/books/booksUser', {user: req.session.user})
+    Books.findAll().then(books => {
+        res.render('admin/books/booksUser', {user: req.session.user, books:books})
+    })
 })
 
 router.get('/admin/books/edit/:id', auth.admin, (req, res) => {

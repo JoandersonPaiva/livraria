@@ -8,3 +8,11 @@
 .space{
     margin: 0 15px;
 }
+
+a.linkBook{
+    text-decoration: none;
+}
+
+a.linkBook:hover{
+    text-decoration: underline;
+}

@@ -1,1 +1,17 @@
-<div class="container"> Aqui vão ser exibidos os livros para os usuários</div>
+<div class="container">
+    <br>
+    <% books.forEach(book => { %>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn" href="">
+                    <h2><%=book.name %></h2>
+                </a>
+            </div>
+            <div class="card-body">
+                <a class="linkBook" href="">
+                    <p><%=book.description %></p>
+                </a>
+            </div>
+        </div>   
+    <% }) %>
+</div>
