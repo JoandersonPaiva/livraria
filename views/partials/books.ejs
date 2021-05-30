@@ -1,17 +1,12 @@
 <div class="container">
-    <br>
     <% books.forEach(book => { %>
-        <div class="card">
-            <div class="card-header">
-                <a class="btn" href="">
-                    <h2><%=book.name %></h2>
-                </a>
-            </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/images/books/<%=book.cod%>.jpg" alt="Card image cap">
             <div class="card-body">
-                <a class="linkBook" href="">
-                    <p><%=book.description %></p>
-                </a>
+              <h5 class="card-title"><%=book.name %></h5>
+              <p class="card-text"><%=book.description %></p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-        </div>   
+          </div>
     <% }) %>
 </div>

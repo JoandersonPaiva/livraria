@@ -16,3 +16,10 @@ a.linkBook{
 a.linkBook:hover{
     text-decoration: underline;
 }
+
+div.card{
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-top: 30px;
+}

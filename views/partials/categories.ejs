@@ -1,10 +1,11 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            Title
-        </div>
-        <div class="card-body">
-            corpo
-        </div>
-    </div>
+    <form action="">
+        <select name="category" class="form-select">
+            <% categories.forEach(category => { %>
+                <option value="<%=category.id%>"><%=category.name%></option>
+                <% }) %>
+            </select>
+            <button type="submit" class="btn btn-primary">Aplicar</button>
+    </form>
+
 </div>

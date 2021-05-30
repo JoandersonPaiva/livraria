@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const auth =  require('../middleware/auth')
 const Categories = require('./Categories')
+const Books = require('../books/Books')
 
 router.get('/admin/categories', auth.admin, (req, res) => {
     Categories.findAll().then(categories => {
@@ -11,7 +12,9 @@ router.get('/admin/categories', auth.admin, (req, res) => {
 })
 
 router.get('/categories', auth.users, (req, res) => {
-    res.render('user/categories/index', {user:req.session.user})
+    Categories.findAll().then(categories => {
+        res.render('user/categories/index', {user:req.session.user, categories:categories})
+    })
 })
 
 router.get('/admin/categories-user', auth.admin, (req, res) => {
