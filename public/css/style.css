@@ -19,9 +19,10 @@ a.linkBook:hover{
 
 div.card{
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 15px;
     border-radius: 20px;
     margin-top: 30px;
+    margin-bottom: 15px;
     border: solid 1px gray
 }
 
