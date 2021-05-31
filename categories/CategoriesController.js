@@ -18,7 +18,9 @@ router.get('/categories', auth.users, (req, res) => {
 })
 
 router.get('/admin/categories-user', auth.admin, (req, res) => {
-    res.render('admin/categories/categoriesUser', {user:req.session.user})
+    Categories.findAll().then(categories => {
+        res.render('admin/categories/categoriesUser', {user:req.session.user, categories:categories})
+    })
 })
 
 router.get('/admin/categories/new',(req, res) => {

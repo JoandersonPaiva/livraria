@@ -22,4 +22,10 @@ div.card{
     margin-right: 10px;
     border-radius: 20px;
     margin-top: 30px;
+    border: solid 1px gray
+}
+
+img.card-img-top{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
