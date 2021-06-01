@@ -93,5 +93,14 @@ router.post('/admin/categories/delete', auth.admin, (req, res) => {
         .catch(() => res.redirect('/admin/categories'))
 })
 
-router.post('/admin/categories-user/:name', auth.admin, (req, res))
+router.post('/admin/categories-user/:name', auth.admin, (req, res) => {
+    let name =  req.body.name
+    res.json(name)
+})
+
+router.post('/categories/:name', auth.users, (req, res) => {
+    let name = req.body.name
+    res.json(name)
+})
+
 module.exports = router
