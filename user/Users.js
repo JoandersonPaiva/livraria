@@ -17,9 +17,12 @@ const Users = connection.define('users', {
     },level:{
         type:Sequelize.INTEGER,
         allowNull:false
+    },balance: {
+        type:Sequelize.FLOAT,
+        allowNull: false
     }
 })
 
-//Users.sync({force: false})
+Users.sync({force: false})
 
 module.exports = Users

@@ -15,6 +15,7 @@ const CategoriesController = require('./categories/CategoriesController')
 const Users =  require('./user/Users')
 const Books = require('./books/Books')
 const Categories =  require('./categories/Categories')
+const Transactions = require('./transactions/Transactions')
 
 //Session
 app.use(session({

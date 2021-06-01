@@ -67,7 +67,8 @@ router.post('/create/verify', (req, res) => {
                 gen: gen,
                 email:email,
                 password: hash,
-                level: 1
+                level: 1,
+                balance:5000
             }).then(() =>{
                 res.redirect('/login')
             })
