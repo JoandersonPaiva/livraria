@@ -4,6 +4,7 @@ const Users =  require('./Users')
 const bcrypt = require('bcrypt')
 const auth = require('../middleware/auth')
 
+
 router.get('/', (req, res) => {
     res.render('index')
 })
@@ -27,7 +28,8 @@ router.post('/login/verify', (req, res) => {
                     name: user.name,
                     gen:user.gen,
                     email: user.email,
-                    level: user.level
+                    level: user.level,
+                    balance:user.balance
                 }
                 res.redirect('/home')
             }else{
@@ -90,4 +92,22 @@ router.post('/logout', (req, res) => {
     req.session.user = undefined
     res.redirect('/login')
 })
+
+router.get('/admin/users', (req,res) => {
+    Users.findAll().then(users => {
+        res.render('admin/users/index',{user: req.session.user, users:users})
+    })
+})
+router.get('/admin/users/edit/:name/:id', (req,res) => {
+    let name = req.params.name
+    let id = req.params.id
+    Users.findOne({
+        where:{
+            id:id
+        }
+    }).then(users =>{
+        res.render('admin/users/edit',{user:req.session.user, users:users})
+    }).catch(error => res.redirect('/admin/users'))
+})
+
 module.exports = router

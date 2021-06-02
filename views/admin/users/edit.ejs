@@ -1,0 +1,56 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbarAdmin') %>
+
+
+<body>
+    <div class="container">
+        <hr>
+        <h2>Users</h2>
+        <hr>
+        <form action="">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Genero</th>
+                    <th>Email</th>
+                    <th>Level</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td><input class="form-control" type="text"Value="<%=users.name %>" name="name"></input></td>
+                        <td><select class="form-select" name="gen">
+                            <%= users.gen %>
+                            <% if(users.gen ==='M'){ %>
+                                <option value="M" selected >Masculino</option>
+                                <option value="F">Feminino</option>
+                            <% }else { %>
+                                <option value="M">Masculino</option>
+                                <option value="F" selected >Feminino<option>                            
+                            <% } %>
+                        </select></input></td>
+                        <td><input type="text" class="form-control" value="<%=users.email %>"name="email"></input></td>
+                        <td><select name="level" class="form-select">
+                            <%= users.level %>
+                            <% if(users.level === 1){ %>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                
+                            <% }else { %>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                                            
+                            <% } %>
+                        </select>
+                        <td><input type="number" class="form-control" value="<%=users.balance %>" name="balance"> </input></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
+    </div>
+</body>
+
+<%- include('../../partials/footer') %>

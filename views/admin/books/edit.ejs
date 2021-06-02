@@ -11,6 +11,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Nível</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Cod</th>
@@ -21,7 +22,7 @@
                     <tr>
                         <th><input type="text" name="name" value="<%= book.name %>" class="form-control" required></th>
                         <th><select name="level" class="form-select" required>
-                            <option value=""></option>
+                            <option  value=""></option>
                             <option value="Iniciante">Iniciante</option>
                             <option value="Intermediário"> Intermediário</option>
                             <option value="Avançado">Avançado</option>
@@ -32,7 +33,8 @@
                         <th><select name="category" class="form-select" required>
                             <% categories.forEach(category => { %>
                                 
-                                <option value="<%=category.id%>"><%=category.name%> </option>
+                                <option value="<%=category.id%>" 
+                                ><%=category.name%> </option>
                             <% }) %>
                         </select></th>
                     </tr>

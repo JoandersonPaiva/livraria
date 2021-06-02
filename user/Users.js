@@ -23,6 +23,6 @@ const Users = connection.define('users', {
     }
 })
 
-Users.sync({force: false})
+//Users.sync({force: false})
 
 module.exports = Users

@@ -28,6 +28,6 @@ const Transactions = connection.define('transactions',{
 Users.hasMany(Transactions)
 Transactions.belongsTo(Users)
 
-Transactions.sync({force: false})
+//Transactions.sync({force: false})
 
 module.exports =  Transactions

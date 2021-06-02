@@ -31,6 +31,6 @@ const Books = connection.define('books',{
 Categories.hasMany(Books)
 Books.belongsTo(Categories)
 
-Books.sync({force: false})
+//Books.sync({force: false})
 
 module.exports =  Books

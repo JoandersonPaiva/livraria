@@ -85,10 +85,12 @@ router.post('/admin/books/save', auth.admin, (req, res) => {
     let cod= req.body.cod
     let categoryId = req.body.category
     let price = req.body.price
+    let level =  req.body.level
     Books.update({
         name:name, 
         slug: slugify(name),
         description:description,
+        level: level,
         price:price,
         quant:quant,
         cod:cod,
