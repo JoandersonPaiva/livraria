@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Simonetta&display=swap');
+
 .login-page{
     position:absolute; 
     top:40%;
@@ -29,4 +31,13 @@ div.card{
 img.card-img-top{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+}
+
+p.price{
+    float: right;
+    font-family: 'Simonetta', cursive;
+    color: rgb(42, 163, 42);
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
 }

@@ -3,6 +3,7 @@ const router = express.Router()
 const auth =  require('../middleware/auth')
 const Categories = require('../categories/Categories')
 const Books = require('./Books')
+const slugify = require('slugify')
 
 
 router.get('/admin/books', auth.admin,(req, res) => {
@@ -52,6 +53,7 @@ router.post('/admin/books/create', auth.admin, (req, res) => {
     let cod= req.body.cod
     let categoryId = req.body.category
     let price = req.body.price
+    let level =  req.body.level
     Books.findOne({
         where: {
             cod: cod
@@ -60,7 +62,9 @@ router.post('/admin/books/create', auth.admin, (req, res) => {
         if(books == undefined) {
             Books.create({
                 name: name,
+                slug: slugify(name),
                 description: description,
+                level: level,
                 price:price,
                 quant: quant,
                 cod: cod,
@@ -83,6 +87,7 @@ router.post('/admin/books/save', auth.admin, (req, res) => {
     let price = req.body.price
     Books.update({
         name:name, 
+        slug: slugify(name),
         description:description,
         price:price,
         quant:quant,

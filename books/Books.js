@@ -6,8 +6,14 @@ const Books = connection.define('books',{
     name:{
         type: Sequelize.STRING,
         allowNull:false
+    },slug:{
+        type: Sequelize.STRING,
+        allowNull:false
     },description:{
         type:Sequelize.TEXT,
+        allowNull:false
+    },level:{
+        type:Sequelize.STRING,
         allowNull:false
     },price:{
         type:Sequelize.FLOAT,

@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Nível</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Cod</th>
@@ -19,6 +20,12 @@
                 <tbody>
                     <tr>
                         <th><input type="text" name="name"  class="form-control" required></th>
+                        <th><select name="level" class="form-select" required>
+                            <option value=""></option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário"> Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select></th>
                         <th><input type="number" name="quant"  class="form-control" required></th>
                         <th><input type="number" name="price"  class="form-control" required></th>
                         <th><input type="number" name="cod"  class="form-control" required></th>

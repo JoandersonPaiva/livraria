@@ -20,6 +20,12 @@
                 <tbody>
                     <tr>
                         <th><input type="text" name="name" value="<%= book.name %>" class="form-control" required></th>
+                        <th><select name="level" class="form-select" required>
+                            <option value=""></option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário"> Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select></th>
                         <th><input type="number" name="quant" value="<%= book.quant %>" class="form-control" required></th>
                         <th><input type="number" name="price" value="<%= book.price %>" class="form-control" required></th>
                         <th><input type="number" name="cod" value="<%= book.cod %>" class="form-control" required></th>

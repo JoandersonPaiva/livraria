@@ -5,6 +5,9 @@ const Categories = connection.define('categories',{
     name:{
         type: Sequelize.STRING,
         allowNull:false
+    },slug:{
+        type:Sequelize.STRING,
+        allowNull:false
     }
 })
 

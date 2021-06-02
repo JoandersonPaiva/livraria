@@ -9,7 +9,7 @@ const session = require('express-session')
 const usersController =  require('./user/UsersController')
 const BooksController = require('./books/BooksControler')
 const CategoriesController = require('./categories/CategoriesController')
-
+const TransactionsController = require('./transactions/TransactionsController')
 
 // Models
 const Users =  require('./user/Users')
@@ -50,7 +50,7 @@ connection
 app.use('/', usersController)
 app.use('/', BooksController)
 app.use('/', CategoriesController)
-
+app.use('/', TransactionsController)
 
 app.listen(8080, () => {
     console.log('Rodando')

@@ -3,6 +3,7 @@ const router = express.Router()
 const auth =  require('../middleware/auth')
 const Categories = require('./Categories')
 const Books = require('../books/Books')
+const slugify = require('slugify')
 
 router.get('/admin/categories', auth.admin, (req, res) => {
     Categories.findAll().then(categories => {
@@ -49,7 +50,8 @@ router.post('/admin/categories/create', auth.admin , (req, res) => {
         }).then(category => {
             if(category == undefined){
                 Categories.create({
-                    name:name
+                    name:name,
+                    slug: slugify(name)
                 }).then(() => {
                     res.redirect('/admin/categories')
                 }).catch(() => {
@@ -70,7 +72,7 @@ router.post('/admin/categories/save', auth.admin , (req, res) => {
     let id = req.body.id
     let name =  req.body.name
     if(name != undefined){
-        Categories.update({name:name}, {
+        Categories.update({name:name, slug:slugify(name)}, {
             where:{
                 id:id
             }

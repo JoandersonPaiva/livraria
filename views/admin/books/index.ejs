@@ -10,10 +10,10 @@
             <thead>
                 <tr>
                     <th>Nome</th>
+                    <th>Nível</th>
                     <th>Quantidade</th>
                     <th>Preço</th>
                     <th>Categoria</th>
-                    <th>Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -21,10 +21,10 @@
                 <% books.forEach(book => { %>
                 <tr>
                     <td><%=book.name %></td>
+                    <td><%=book.level %></td>
                     <td><%=book.quant %></td>
                     <td><%=book.price %></td>
                     <td><%=book.category.name %></td>
-                    <td><%=book.description %></td>
 
                     <td><a href="/admin/books/edit/<%=book.id%>" class="btn btn-warning">Editar</a>
                     <form action="/admin/books/delete" method="POST" style="display: inline;" onsubmit="confirmDelete(event, this)">

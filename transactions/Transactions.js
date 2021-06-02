@@ -6,6 +6,21 @@ const Transactions = connection.define('transactions',{
     name:{
         type: Sequelize.STRING,
         allowNull:false
+    },slug:{
+        type: Sequelize.STRING,
+        allowNull:false
+    },description:{
+        type:Sequelize.TEXT,
+        allowNull:false
+    },price:{
+        type:Sequelize.FLOAT,
+        allowNull:false
+    },quant:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },cod:{
+        type:Sequelize.INTEGER,
+        allowNull:false
     }
 })
 
