@@ -33,12 +33,13 @@ router.get('/admin/books-user',auth.admin,(req, res) => {
     })
 })
 
-router.get('/admin/books/edit/:id', auth.admin, (req, res) => {
-    let id = req.params.id
-    if(isNaN(id)){
-        res.redirect('/admin/books')
-    }
-    Books.findByPk(id).then(book => {
+router.get('/admin/books/edit/:slug', auth.admin, (req, res) => {
+    let slug = req.params.slug
+    Books.findOne({
+        where:{
+            slug:slug
+
+    }}).then(book => {
         Categories.findAll().then(categories => {
             res.render('admin/books/edit', {user: req.session.user, book:book, categories:categories}).catch(() => res.redirect('/admin/books'))
         })
@@ -111,5 +112,7 @@ router.post('/admin/books/delete', auth.admin, (req, res) => {
     }).then(() => res.redirect('/admin/books'))
         .catch(() => res.redirect('/admin/books'))
 })
+
+
 
 module.exports = router

@@ -18,7 +18,7 @@
             <tr>
                     <td><%=category.id %> </td>
                     <td><%=category.name %> </td>
-                    <td><a href="/admin/categories/edit/<%=category.id%>" class="btn btn-warning">Editar</a>
+                    <td><a href="/admin/categories/edit/<%=category.slug%>" class="btn btn-warning">Editar</a>
                     <form action="/admin/categories/delete" method="POST" style="display: inline;" onsubmit="confirmDelete(event, this)">
                         <input type="hidden" name="id" value="<%=category.id%>">
                         <button class="btn btn-danger">Deletar</button></td>  

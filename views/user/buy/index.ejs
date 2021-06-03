@@ -1,0 +1,29 @@
+<%- include('../../partials/header') %>
+<% if(user.level === 1) { %>
+    <%- include('../../partials/navbarUserLogout') %>
+
+<% }else { %>
+    <%- include('../../partials/navbarAdmin') %>
+<% } %>
+
+<div class="container">
+    <hr>
+    <h1><%=book.name%></h1>
+    <hr>
+    <div class="row">
+        <figure class="figure col">
+            <img src="/images/books/<%=book.cod%>.jpg" class="figure-img img-fluid rounded" alt="...">
+        </figure>
+        <div class="card col">
+            <div class="card-body">
+                <h3>Nível: <%=book.level%></h3>
+            </div>
+            <hr>
+            <div class="card-body">
+                <%=book.description%>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer') %>

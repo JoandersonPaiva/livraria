@@ -28,16 +28,15 @@ router.get('/admin/categories/new',(req, res) => {
     res.render('admin/categories/new', {user:req.session.user})
 })
 
-router.get('/admin/categories/edit/:id',(req, res) => {
-    let id = req.params.id
-    if(isNaN(id)){
-        res.redirect('/admin/categories')
-    }
-    Categories.findByPk(id).then(category => {
-        if(category != undefined){
-            res.render('admin/categories/edit', {user:req.session.user, category:category})
+router.get('/admin/categories/edit/:slug',(req, res) => {
+    let slug = req.params.slug
+    Categories.findOne({
+        where:{
+            slug:slug
         }
-    })
+    }).then(category => {
+            res.render('admin/categories/edit', {user:req.session.user, category:category}) 
+    }).catch(() => res.redirect('/admin/categories'))
 })
 
 router.post('/admin/categories/create', auth.admin , (req, res) => {

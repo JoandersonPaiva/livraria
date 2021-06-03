@@ -22,7 +22,6 @@
                     <tr>
                         <td><input class="form-control" type="text"Value="<%=users.name %>" name="name"></input></td>
                         <td><select class="form-select" name="gen">
-                            <%= users.gen %>
                             <% if(users.gen ==='M'){ %>
                                 <option value="M" selected >Masculino</option>
                                 <option value="F">Feminino</option>
@@ -33,7 +32,6 @@
                         </select></input></td>
                         <td><input type="text" class="form-control" value="<%=users.email %>"name="email"></input></td>
                         <td><select name="level" class="form-select">
-                            <%= users.level %>
                             <% if(users.level === 1){ %>
                                 <option value="1" selected>1</option>
                                 <option value="2">2</option>
