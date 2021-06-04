@@ -1,0 +1,15 @@
+---
+application:
+  name: "livraria"
+  project: "my-library"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "livraria"
+  version: "8.0"
+routers:
+- name: "main-livraria"
+  routes:
+  - application_name: "livraria"
+    paths:
+    - "/*"
