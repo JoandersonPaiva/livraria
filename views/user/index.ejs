@@ -1,7 +1,11 @@
 <%- include('../partials/header') %>
-<%- include('../partials/navbarUserLogout') %>
-<body>
-  
-</body>
+<% if(user.level == 1){ %>
+    <%- include('../partials/navbarUserLogout') %>
+    
+<% }else {%>
+    <%- include('../partials/navbarAdmin') %>         
+<% } %>
+
+<%- include('../partials/home') %>
 
 <%- include('../partials/footer') %>

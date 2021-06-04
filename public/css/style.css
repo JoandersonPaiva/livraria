@@ -33,7 +33,7 @@ img.card-img-top{
     border-top-right-radius: 20px;
 }
 
-p.price{
+p.price, div.price{
     float: right;
     font-family: 'Simonetta', cursive;
     color: rgb(42, 163, 42);
@@ -41,3 +41,4 @@ p.price{
     font-weight: bold;
     font-style: italic;
 }
+

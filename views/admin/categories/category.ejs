@@ -1,12 +1,16 @@
 <%- include('../../partials/header') %>
 
-<% if(user.level == 1){ %>
+<% if(user.level === 1){ %>
     <%- include('../../partials/navbarUserLogout') %>
-    
-<% }else {%>
-    <%- include('../../partials/navbarAdmin') %>         
-<% } %>
+    <% }else {%>
+        <%- include('../../partials/navbarAdmin') %>      
+    <% } %>
 
 <%- include('../../partials/categories') %>
 
+
+
+
+
+<%- include('../../partials/books') %>
 <%- include('../../partials/footer') %>

@@ -15,19 +15,12 @@
             <img class="card-img-top" src="/images/books/<%=book.cod%>.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%=book.name %></h5>
-              <p class="price">R$ <%=book.price%></p>
-              <form action="/books/buy" method="POST">
-                <label >
-                    <label >Quant:</label>
-                    <input type="hidden" name="name" value="<%=book.name%>">
-                    <select name="quant" class="form-select">
-                        <% for(let i=1; i < 11; i++) { %>
-                            <option value="<%= i %>"><%= i %> </option>
-                        <% } %>
-                    </select>
-                </label>
-                <button type="submit" class="btn btn-primary"> Comprar</button>
-            </form>
+              <label >
+                  Quant:
+                  <p class="form-control"><%=book.quant %></p>
+              </label>
+                
+        
             </div>
           </div>
         <div class="card col">

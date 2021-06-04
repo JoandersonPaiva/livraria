@@ -1,8 +1,17 @@
 <div class="container">
-    <form action="">
-        <select name="category" class="form-select">
+    <form action="/categories/category" method="POST">
+        <select name="id" class="form-select">
             <% categories.forEach(category => { %>
-                <option value="<%=category.id%>"><%=category.name%></option>
+                <% if(idCategory){ %>
+                    <% if(idCategory == category.id) { %>
+                        <option value="<%=category.id%>" selected><%=category.name%></option>
+                    <%} else{%> 
+                        <option value="<%=category.id%>" ><%=category.name%></option>  
+                    <% } %>
+                       
+                <% }else { %>
+                    <option value="<%=category.id%>" ><%=category.name%></option>          
+                <% } %>
                 <% }) %>
             </select>
             <br>

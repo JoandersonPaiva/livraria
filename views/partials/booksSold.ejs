@@ -4,9 +4,8 @@
             <img class="card-img-top" src="/images/books/<%=book.cod%>.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%=book.name %></h5>
-              <p class="card-text"><%=book.level %></p>
-              <a href="/admin/books-user/buy/<%=book.slug%>" class="btn btn-primary">Ler Mais</a>
-              <p class="price"> R$ <%=book.price %></p>
+              <p class="card-text"><%= book.level %></p>
+              <a href="/my-books/<%= book.slug%>" class="btn btn-primary">Ler mais</a>
             </div>
           </div>
     <% }) %>

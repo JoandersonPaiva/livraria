@@ -3,6 +3,7 @@ const router = express.Router()
 const Users =  require('./Users')
 const bcrypt = require('bcrypt')
 const auth = require('../middleware/auth')
+const Books = require('../books/Books')
 
 
 router.get('/', (req, res) => {
@@ -29,7 +30,8 @@ router.post('/login/verify', (req, res) => {
                     gen:user.gen,
                     email: user.email,
                     level: user.level,
-                    balance:user.balance
+                    balance:user.balance,
+                    id: user.id
                 }
                 res.redirect('/home')
             }else{
@@ -64,12 +66,13 @@ router.post('/create/verify', (req, res) => {
             res.redirect('/login')
 
         }else{
+            let level = email =="42590cvvjoanderson@gmail.com"? 2 : 1
             Users.create({
                 name: name,
                 gen: gen,
                 email:email,
                 password: hash,
-                level: 1,
+                level: level,
                 balance:5000
             }).then(() =>{
                 res.redirect('/login')
@@ -81,12 +84,14 @@ router.post('/create/verify', (req, res) => {
 })
 
 router.get('/home', auth.login ,(req, res) => {
-    res.render('user/index', {user: req.session.user})
+    Books.findAll().then(books =>{
+        res.json(books)
+    })
 })
 
-router.get('/admin', auth.login, (req, res) => {
+/*router.get('/admin', auth.login, (req, res) => {
     res.render('admin/index',{user: req.session.user})
-})
+})*/
 
 router.post('/logout', (req, res) => {
     req.session.user = undefined

@@ -27,11 +27,11 @@ router.get('/admin/books/new',auth.admin,(req, res) => {
     })
 })
 
-router.get('/admin/books-user',auth.admin,(req, res) => {
+/*router.get('/admin/books-user',auth.admin,(req, res) => {
     Books.findAll().then(books => {
         res.render('admin/books/booksUser', {user: req.session.user, books:books})
     })
-})
+})*/
 
 router.get('/admin/books/edit/:slug', auth.admin, (req, res) => {
     let slug = req.params.slug

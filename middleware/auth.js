@@ -1,3 +1,5 @@
+const Books = require('../books/Books')
+
 const users = (req , res, next) => {
     const user =  req.session.user
     if(user != undefined){
@@ -23,13 +25,9 @@ const admin = (req , res, next) => {
 const login = (req, res) => {
     const user =  req.session.user
     if(user != undefined){
-        if(user.level === 1){
-            res.render('user/index', {user:user})
-        }else if(user.level === 2){
-            res.render('admin/index', {user:user})
-        }else{
-            res.redirect('/login')
-        }
+        Books.findAll().then(books => {
+            res.render('user/index', {user:user, books:books})  
+        })
     }else{
         res.redirect('/login')
     }

@@ -14,15 +14,15 @@ router.get('/admin/categories', auth.admin, (req, res) => {
 
 router.get('/categories', auth.users, (req, res) => {
     Categories.findAll().then(categories => {
-        res.render('user/categories/index', {user:req.session.user, categories:categories})
+        res.render('user/categories/index', {user:req.session.user, categories:categories, idCategory:undefined})
     })
 })
 
-router.get('/admin/categories-user', auth.admin, (req, res) => {
+/*router.get('/admin/categories-user', auth.admin, (req, res) => {
     Categories.findAll().then(categories => {
-        res.render('admin/categories/categoriesUser', {user:req.session.user, categories:categories})
+        res.render('admin/categories/categoriesUser', {user:req.session.user, categories:categories, idCategory:undefined})
     })
-})
+})*/
 
 router.get('/admin/categories/new',(req, res) => {
     res.render('admin/categories/new', {user:req.session.user})
@@ -94,14 +94,16 @@ router.post('/admin/categories/delete', auth.admin, (req, res) => {
         .catch(() => res.redirect('/admin/categories'))
 })
 
-router.post('/admin/categories-user/:name', auth.admin, (req, res) => {
-    let name =  req.body.name
-    res.json(name)
+router.post('/categories/category', auth.users, (req, res) => {
+    let id =  req.body.id
+    Books.findAll({where:{
+        categoryId:id
+    }}).then(books => {
+        Categories.findAll().then(categories =>{
+            res.render('admin/categories/category', {user: req.session.user, books:books, categories:categories, idCategory:id})
+        })
+    })
 })
 
-router.post('/categories/:name', auth.users, (req, res) => {
-    let name = req.body.name
-    res.json(name)
-})
 
 module.exports = router

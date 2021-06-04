@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-
+//Banco de dados
 connection
 .authenticate()
 .then(() => {
